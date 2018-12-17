@@ -1,0 +1,26 @@
+.pulse
+    position: absolute
+    bottom: 22%
+    height: 200px
+    width: 100%
+    display: flex
+    flex-direction: row
+    justify-content: center
+
+.pulse-item
+    height: 100%
+    width: calc(100% / 6)
+    background-image: url('/static/pulses/pulse_1.svg')
+    background-position: center
+    background-size: cover
+    background-repeat: no-repeat
+    cursor: pointer
+    filter: grayscale(0)
+    transition: all 0.4s ease
+
+.pulse:hover > .pulse-item
+    filter: grayscale(1)
+
+
+.pulse:hover > .pulse-item:hover
+    filter: grayscale(0)

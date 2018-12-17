@@ -13,7 +13,6 @@ export default class Router {
         this.renderRoutes()
 
         window.onpopstate = e => {
-            console.log(e)
             this.currentRoute = window.location.pathname
             this.renderRoutes()
         }
