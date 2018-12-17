@@ -6,6 +6,7 @@ export default class Router {
         this.currentRoute = window.location.pathname
         this.history = window.history
         
+        this.loading = document.querySelector(_params.loadingClassName)
         this.links = document.querySelectorAll(_params.linkClassName)
         this.routes = document.querySelectorAll(_params.routeClassName)
 
@@ -18,12 +19,29 @@ export default class Router {
         }
     }
 
+    showLoading() {
+        this.loading.style.display = "flex"
+        setTimeout(() => {
+            this.loading.classList.remove('loaded')
+        }, 100);
+    }
+
+    hideLoading() {
+        this.loading.classList.add('loaded')
+        setTimeout(() => {
+            this.loading.style.display = "none"
+        }, 510);
+    }
+
     registerLinkEvents() {
         for (const link of this.links) {
             link.addEventListener('click', () => {
+                this.showLoading()
                 this.currentRoute = link.dataset.href
                 this.history.pushState({}, 'Les voix de la guerre', link.dataset.href)
-                this.renderRoutes()
+                setTimeout(() => {
+                    this.renderRoutes()
+                }, 410)
             })
         }
     }
@@ -35,6 +53,15 @@ export default class Router {
 
             if (route.dataset.path === target) {
                 route.style.display = 'block'
+                route.classList.add('loading-in')
+                route.classList.remove('loading-out')
+                setTimeout(() => {
+                    this.hideLoading()
+                    setTimeout(() => {
+                        route.classList.remove('loading-in')
+                        route.classList.add('loading-out')
+                    }, 100)
+                }, 1000)
             } else {
                 route.style.display = 'none'
             }

@@ -6,7 +6,8 @@ export default class Main {
     constructor() {
         this.router = new Router({
             linkClassName: '.js-link',
-            routeClassName: '.js-route'
+            routeClassName: '.js-route',
+            loadingClassName: '.js-loader'
         })
 
         //this.canvas = new Canvas()
