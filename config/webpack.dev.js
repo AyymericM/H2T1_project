@@ -9,7 +9,8 @@ module.exports = merge(
         devServer:
         {
             contentBase: './dist',
-            host: ip.address()
+            host: ip.address(),
+            historyApiFallback: true
         },
         plugins:
         [

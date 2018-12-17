@@ -1,10 +1,11 @@
 import data from '../data'
-import Parallax from './Parallax'
+import Router from './Router'
 
 export default class Main {
     constructor() {
-        this.parallax = new Parallax(data[4].parallax)
-
-        this.parallax.render()
+        this.router = new Router({
+            linkClassName: '.js-link',
+            routeClassName: '.js-route'
+        })
     }
 }
