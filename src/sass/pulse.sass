@@ -1,15 +1,61 @@
 .pulse
     position: absolute
     bottom: 22%
-    height: 200px
+    height: 290px
     width: 100%
     display: flex
     flex-direction: row
     justify-content: center
+    transition: all 0.5s
+
+.pulse:hover .pulse-item
+    filter: grayscale(0.8)
+
+
+.pulse:hover .pulse-item:hover
+    filter: grayscale(0)
+
+.pulse-item-title
+    position: relative
+    margin: 70px 0 0 15%
+    color: $color-grey
+    font-size: 16px
+    cursor: pointer
+    transition: all 0.5s
+    &:after
+        position: absolute
+        z-index: 50
+        content: ''
+        top: -30px
+        left: calc(50% - 6px)
+        width: 12px
+        height: 12px
+        background-color: $color-red
+        border-radius: 50%
+
+.pulse-item-container
+    height: 100%
+    width: calc(100% / 6)
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    &:hover > .pulse-item-title:before
+        position: absolute
+        z-index: 30
+        content: ''
+        top: -30.5px
+        left: calc(50% - 7px)
+        width: 12px
+        height: 12px
+        border-radius: 50%
+        border: 1px solid $color-orange
+        animation: radio-flash 0.7s linear infinite
 
 .pulse-item
     height: 100%
-    width: calc(100% / 6)
+    width: 100%
     background-image: url('/static/pulses/pulse_1.svg')
     background-position: center
     background-size: cover
@@ -18,9 +64,12 @@
     filter: grayscale(0)
     transition: all 0.4s ease
 
-.pulse:hover > .pulse-item
-    filter: grayscale(1)
-
-
-.pulse:hover > .pulse-item:hover
-    filter: grayscale(0)
+@keyframes radio-flash
+    0%
+        border-color: rgba(247, 147, 30, 1)
+        transform: scale(1)
+    50%
+        border-color: rgba(247, 147, 30, 0.7)
+    100%
+        border-color: rgba(247, 147, 30, 0)
+        transform: scale(3)

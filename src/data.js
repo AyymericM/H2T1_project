@@ -58,6 +58,24 @@ const data = [
         index: 4,
         path: '/content',
         textContent: {
+            title: 'Temps révolutionnaires'
+        },
+        soundContent: {
+            file: "audio_5.mp3"
+        },
+        parallax: {
+            containerClassName: 'js-parallax',
+            layerClassName: 'parallax-layer',
+            layers: [
+                {file: '5_temps_revolutionnaire_background.jpg', offset: 0.2, zIndex: 10},
+                {file: '5_temps_revolutionnaire_foreground.png', offset: 0.1, zIndex: 15},
+            ]
+        },
+    },
+    {
+        index: 5,
+        path: '/content',
+        textContent: {
             title: 'Epoque contemporaine'
         },
         soundContent: {
@@ -75,25 +93,7 @@ const data = [
         },
     },
     {
-        index: 5,
-        path: '/content',
-        textContent: {
-            title: 'Temps révolutionnaires'
-        },
-        soundContent: {
-            file: "audio_5.mp3"
-        },
-        parallax: {
-            containerClassName: 'js-parallax',
-            layerClassName: 'parallax-layer',
-            layers: [
-                {file: '5_temps_revolutionnaire_background.jpg', offset: 0.2, zIndex: 10},
-                {file: '5_temps_revolutionnaire_foreground.png', offset: 0.1, zIndex: 15},
-            ]
-        },
-    },
-    {
-        index: 5,
+        index: 6,
         path: '/content',
         textContent: {
             title: `Aujourd'hui`
