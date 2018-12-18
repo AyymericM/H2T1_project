@@ -8,6 +8,8 @@
     justify-content: center
     transition: all 0.5s
     cursor: pointer
+    @media screen and (max-width: '1400px')
+        height: 190px
 
 .pulse:hover .pulse-item
     filter: grayscale(0.8)
@@ -18,11 +20,15 @@
 
 .pulse-item-title
     position: relative
+    white-space: nowrap
     margin: 70px 0 0 15%
     color: $color-grey
     font-size: 16px
     cursor: pointer
     transition: all 0.5s
+    text-align: center
+    @media screen and (max-width: '1400px')
+        margin: 40px 0 0 15%
     &:after
         position: absolute
         z-index: 50

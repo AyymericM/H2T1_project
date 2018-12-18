@@ -3,7 +3,10 @@ const data = [
         index: 1,
         path: '/content',
         textContent: {
-            title: 'Antiquité'
+            title: 'Guerre de cent ans, bataille d’Azincourt',
+            main: 'Eustache Deschamps, né vers 1340 et mort vers 1425, était un poète français qui fut huissier d’armes du roi Charles V. Voici un poème qu’il aurait écrit après la bataille d’Azincourt (guerre de cent ans), où la France a essuyé une lourde défaite contre les anglais en 1415.',
+            btn: 'Ecouter le Poème de Eustache Deschamps',
+            more: 'Apprenez en plus sur la bataille d’Azincourt'
         },
         soundContent: {
             file: "audio_1.mp3"
@@ -21,7 +24,10 @@ const data = [
         index: 2,
         path: '/content',
         textContent: {
-            title: 'Moyen âge'
+            title: 'Guerre de cent ans, bataille d’Azincourt',
+            main: 'Eustache Deschamps, né vers 1340 et mort vers 1425, était un poète français qui fut huissier d’armes du roi Charles V. Voici un poème qu’il aurait écrit après la bataille d’Azincourt (guerre de cent ans), où la France a essuyé une lourde défaite contre les anglais en 1415.',
+            btn: 'Ecouter le Poème de Eustache Deschamps',
+            more: 'Apprenez en plus sur la bataille d’Azincourt'
         },
         soundContent: {
             file: "audio_2.mp3"
@@ -40,7 +46,10 @@ const data = [
         index: 3,
         path: '/content',
         textContent: {
-            title: 'Renaissance'
+            title: 'Guerre de cent ans, bataille d’Azincourt',
+            main: 'Eustache Deschamps, né vers 1340 et mort vers 1425, était un poète français qui fut huissier d’armes du roi Charles V. Voici un poème qu’il aurait écrit après la bataille d’Azincourt (guerre de cent ans), où la France a essuyé une lourde défaite contre les anglais en 1415.',
+            btn: 'Ecouter le Poème de Eustache Deschamps',
+            more: 'Apprenez en plus sur la bataille d’Azincourt'
         },
         soundContent: {
             file: "audio_3.mp3"
@@ -58,7 +67,10 @@ const data = [
         index: 4,
         path: '/content',
         textContent: {
-            title: 'Temps révolutionnaires'
+            title: 'Guerre de cent ans, bataille d’Azincourt',
+            main: 'Eustache Deschamps, né vers 1340 et mort vers 1425, était un poète français qui fut huissier d’armes du roi Charles V. Voici un poème qu’il aurait écrit après la bataille d’Azincourt (guerre de cent ans), où la France a essuyé une lourde défaite contre les anglais en 1415.',
+            btn: 'Ecouter le Poème de Eustache Deschamps',
+            more: 'Apprenez en plus sur la bataille d’Azincourt'
         },
         soundContent: {
             file: "audio_5.mp3"
@@ -76,7 +88,10 @@ const data = [
         index: 5,
         path: '/content',
         textContent: {
-            title: 'Epoque contemporaine'
+            title: 'Guerre de cent ans, bataille d’Azincourt',
+            main: 'Eustache Deschamps, né vers 1340 et mort vers 1425, était un poète français qui fut huissier d’armes du roi Charles V. Voici un poème qu’il aurait écrit après la bataille d’Azincourt (guerre de cent ans), où la France a essuyé une lourde défaite contre les anglais en 1415.',
+            btn: 'Ecouter le Poème de Eustache Deschamps',
+            more: 'Apprenez en plus sur la bataille d’Azincourt'
         },
         soundContent: {
             file: "audio_4.mp3"
@@ -96,7 +111,10 @@ const data = [
         index: 6,
         path: '/content',
         textContent: {
-            title: `Aujourd'hui`
+            title: 'Guerre de cent ans, bataille d’Azincourt',
+            main: 'Eustache Deschamps, né vers 1340 et mort vers 1425, était un poète français qui fut huissier d’armes du roi Charles V. Voici un poème qu’il aurait écrit après la bataille d’Azincourt (guerre de cent ans), où la France a essuyé une lourde défaite contre les anglais en 1415.',
+            btn: 'Ecouter le Poème de Eustache Deschamps',
+            more: 'Apprenez en plus sur la bataille d’Azincourt'
         },
         soundContent: {
             file: "audio_6.mp3"

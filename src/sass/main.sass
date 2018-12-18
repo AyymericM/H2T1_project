@@ -25,11 +25,12 @@ html, body
     justify-content: center
     align-items: center
     opacity: 1
-    transition: opacity 0.4s ease-out
+    will-change: opacity
+    transition: opacity 0.2s ease-out
     & > .loader-text
         color: white
         font-size: 32px
-    & .loaded
+    &.loaded
         opacity: 0
 
 

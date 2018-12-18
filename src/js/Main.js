@@ -1,15 +1,119 @@
 import data from '../data'
-import Router from './Router'
-//import Canvas from './Canvas'
+import Parallax from './Parallax'
+import Sounds from './Sounds'
 
 export default class Main {
     constructor() {
-        this.router = new Router({
+        this.currentRoute = window.location.pathname
+        this.currentData = null
+        this.history = window.history
+        
+        this.params = {
             linkClassName: '.js-link',
             routeClassName: '.js-route',
             loadingClassName: '.js-loader'
-        })
+        }
 
-        //this.canvas = new Canvas()
+        this.loading = document.querySelector(this.params.loadingClassName)
+        this.links = document.querySelectorAll(this.params.linkClassName)
+        this.routes = document.querySelectorAll(this.params.routeClassName)
+
+        this.registerLinkEvents()
+        this.renderRoutes()
+
+        this.sounds = new Sounds({toggleBtnClass: '.nav > .nav-item.sound'})
+
+        window.onpopstate = e => {
+            this.currentRoute = window.location.pathname
+            this.renderRoutes()
+        }
+    }
+
+    showLoading() {
+        this.loading.style.display = "flex"
+        setTimeout(() => {
+            this.loading.classList.remove('loaded')
+        }, 100);
+    }
+
+    hideLoading() {
+        this.loading.classList.add('loaded')
+        setTimeout(() => {
+            this.loading.style.display = "none"
+        }, 510);
+    }
+
+    registerLinkEvents() {
+        for (const link of this.links) {
+            link.addEventListener('click', () => {
+                this.showLoading()
+                this.currentRoute = link.dataset.href
+                this.history.pushState({}, 'Les voix de la guerre', link.dataset.href)
+                setTimeout(() => {
+                    this.renderRoutes()
+                }, 410)
+            })
+        }
+    }
+
+    renderRoutes() {
+        for (const route of this.routes) {
+            const pathSplit = this.currentRoute.split('/')
+            const target = `/${pathSplit[1]}`
+
+            if (route.dataset.path === target) {
+                route.style.display = 'block'
+                route.classList.add('loading-in')
+                route.classList.remove('loading-out')
+                setTimeout(() => {
+                    this.hideLoading()
+                    route.classList.remove('loading-in')
+                    route.classList.add('loading-out')
+                }, 1000)
+            } else {
+                route.style.display = 'none'
+            }
+        }
+
+        if (window.location.pathname.includes('content')) {
+            const rindex = window.location.pathname.split('/').pop()
+            if (!isNaN(parseInt(rindex))) {
+                const d = data.filter(val => val.index === parseInt(rindex))
+                this.currentData = d[0]
+                this.parallax = new Parallax(this.currentData)
+                this.parallax.render()
+                this.renderText()
+            } else {
+                this.currentRoute = '/'
+                this.history.pushState({}, 'Les voix de la guerre', link.dataset.href)
+                this.renderRoutes()
+            }
+        }
+    }
+
+    renderText() {
+        if (this.currentData) {
+            const container = document.querySelector('.content-container')
+            const title = container.querySelector('.content.title')
+            const main = container.querySelector('.content.main')
+            const btn = container.querySelector('.content.btn')
+            const more = container.querySelector('.content.more')
+    
+            const txt = this.data.textContent
+            title.innerText = txt.title
+            main.innerText = txt.main
+            more.innerText = txt.more
+            btn.innerText = txt.btn
+            // btn.addEventListener('click', () => {
+            //     if (this.sounds.isPlayingVoice) {
+            //         this.sounds.pauseVoice()
+            //     }
+            //     this.sounds.playVoice({
+            //         play
+            //         file: this.data.soundContent.file,
+            //         el: btn
+            //     })
+            // })
+        }
     }
 }

@@ -1,6 +1,6 @@
 export default class Parallax {
-    constructor(_params) {
-        this.params = _params
+    constructor(_data) {
+        this.data = _data
         this.layers = []
         this.render = this.render.bind(this)
         this.screen = {
@@ -36,11 +36,11 @@ export default class Parallax {
     }
 
     render() {
-        const container = document.querySelector(`.${this.params.containerClassName}`)
+        const container = document.querySelector(`.${this.data.parallax.containerClassName}`)
         container.innerHTML = ''
-        for (const item of this.params.layers) {
+        for (const item of this.data.parallax.layers) {
             const layer = document.createElement('div')
-            layer.classList.add(this.params.layerClassName)
+            layer.classList.add(this.data.parallax.layerClassName)
             layer.style.backgroundImage = `url('/static/parallax/${item.file}')`
             layer.style.zIndex = item.zIndex
             layer.dataset.offset = item.offset
