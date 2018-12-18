@@ -33,17 +33,22 @@
     cursor: pointer
     user-select: none
     z-index: 100
+    transition: all 0.2s
     &.logo
         width: 133px
         height: 53px
         background-image: url('/static/logo.svg')
         background-repeat: no-repeat
+        &:hover
+            opacity: 0.7
     &.sound
         z-index: 120
         width: 22px
         height: 22px
         background-image: url('/static/sound-off.png')
         background-size: cover
+        &:hover
+            transform: scale(1.18)
     &.sound.audio-notification
         &.sound:before
             content: ''
@@ -60,6 +65,8 @@
     &.link
         color: white
         font-size: 18px
+        &:hover
+            opacity: 0.7
 
 
 @keyframes sound-flash

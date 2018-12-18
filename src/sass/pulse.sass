@@ -39,6 +39,7 @@
         height: 12px
         background-color: $color-red
         border-radius: 50%
+        transition: all 0.5s
 
 .pulse-item-container
     height: 100%
@@ -48,6 +49,8 @@
     flex-direction: column
     justify-content: center
     align-items: center
+    &:hover > .pulse-item-title:after
+        transform: scale(1.4)
     &:hover > .pulse-item-title:before
         position: absolute
         z-index: 30

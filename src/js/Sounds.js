@@ -28,6 +28,7 @@ export default class Sounds {
                 this.isMuted = true
                 this.alertUser()
             })
+        this.renderBtn()
     }
 
     alertUser() {
