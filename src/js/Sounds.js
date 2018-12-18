@@ -18,6 +18,7 @@ export default class Sounds {
     }
 
     playAmbiant() {
+        this.sounds.ambiant.loop = true
         this.sounds.ambiant.play()
             .then(() => {
                 this.toggleBtn.classList.remove('audio-notification')
