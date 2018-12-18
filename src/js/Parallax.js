@@ -47,6 +47,9 @@ export default class Parallax {
             this.layers.push(layer)
             container.appendChild(layer)
         }
+        const overlay = document.createElement('div')
+        overlay.classList.add('parallax-overlay')
+        container.appendChild(overlay)
         this.registerEvents()
     }
 }

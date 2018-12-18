@@ -5,12 +5,48 @@
     transition: transform 0.4s ease-out
 
 .content-container
-    margin: 0 auto
-    max-width: 1640px
+    position: absolute
+    z-index: 70
+    height: 100%
+    width: 100%
 
 .content-column
-    width: 50%
+    margin: 0 auto
+    max-width: 1640px
     display: flex
     flex-direction: column
-    justify-content: flex-start
+    justify-content: center
+    align-items: flex-start
+    height: 100%
+    width: 100%
+    padding: 0 30px
+    box-sizing: border-box
+    &.right
+        text-align: right
+        align-items: flex-end !important
 
+
+.content
+    user-select: none
+    &.title
+        font-size: 32px
+        color: $color-orange
+        cursor: default
+    &.main
+        margin: 20px 0 35px 0
+        font-size: 28px
+        color: white
+        width: 50%
+        cursor: default
+    &.btn
+        padding: 23px 50px
+        color: white
+        font-size: 18px
+        cursor: pointer
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16)
+        background-color: $color-red
+        margin-bottom: 10px
+    &.more
+        color: $color-grey
+        font-size: 16px
+        cursor: pointer

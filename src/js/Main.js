@@ -11,12 +11,14 @@ export default class Main {
         this.params = {
             linkClassName: '.js-link',
             routeClassName: '.js-route',
-            loadingClassName: '.js-loader'
+            loadingClassName: '.js-loader',
+            timelineDotsClassName: '.js-timeline'
         }
 
         this.loading = document.querySelector(this.params.loadingClassName)
         this.links = document.querySelectorAll(this.params.linkClassName)
         this.routes = document.querySelectorAll(this.params.routeClassName)
+        this.timelineDots = document.querySelectorAll(this.params.timelineDotsClassName)
 
         this.registerLinkEvents()
         this.renderRoutes()
@@ -24,8 +26,11 @@ export default class Main {
         this.sounds = new Sounds({toggleBtnClass: '.nav > .nav-item.sound'})
 
         window.onpopstate = e => {
-            this.currentRoute = window.location.pathname
-            this.renderRoutes()
+            this.showLoading()
+            setTimeout(() => {
+                this.currentRoute = window.location.pathname
+                this.renderRoutes()
+            }, 200)
         }
     }
 
@@ -56,6 +61,17 @@ export default class Main {
         }
     }
 
+    renderTimeline() {
+        for (const element of this.timelineDots) {
+            const dot = element.querySelector('.timeline-dot')
+            if (parseInt(element.dataset.index) === parseInt(this.currentData.index)) {
+                dot.classList.add('active')
+            } else {
+                dot.classList.remove('active')
+            }
+        }
+    }
+
     renderRoutes() {
         for (const route of this.routes) {
             const pathSplit = this.currentRoute.split('/')
@@ -82,6 +98,7 @@ export default class Main {
                 this.currentData = d[0]
                 this.parallax = new Parallax(this.currentData)
                 this.parallax.render()
+                this.renderTimeline()
                 this.renderText()
             } else {
                 this.currentRoute = '/'
@@ -94,12 +111,17 @@ export default class Main {
     renderText() {
         if (this.currentData) {
             const container = document.querySelector('.content-container')
+            if (this.currentData.textContent.right) {
+                container.querySelector('.content-column').classList.add('right')
+            } else {
+                container.querySelector('.content-column').classList.remove('right')
+            }
             const title = container.querySelector('.content.title')
             const main = container.querySelector('.content.main')
             const btn = container.querySelector('.content.btn')
             const more = container.querySelector('.content.more')
     
-            const txt = this.data.textContent
+            const txt = this.currentData.textContent
             title.innerText = txt.title
             main.innerText = txt.main
             more.innerText = txt.more

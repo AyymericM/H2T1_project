@@ -3,6 +3,7 @@ const data = [
         index: 1,
         path: '/content',
         textContent: {
+            right: false,
             title: 'Guerre de cent ans, bataille d’Azincourt',
             main: 'Eustache Deschamps, né vers 1340 et mort vers 1425, était un poète français qui fut huissier d’armes du roi Charles V. Voici un poème qu’il aurait écrit après la bataille d’Azincourt (guerre de cent ans), où la France a essuyé une lourde défaite contre les anglais en 1415.',
             btn: 'Ecouter le Poème de Eustache Deschamps',
@@ -24,6 +25,7 @@ const data = [
         index: 2,
         path: '/content',
         textContent: {
+            right: false,
             title: 'Guerre de cent ans, bataille d’Azincourt',
             main: 'Eustache Deschamps, né vers 1340 et mort vers 1425, était un poète français qui fut huissier d’armes du roi Charles V. Voici un poème qu’il aurait écrit après la bataille d’Azincourt (guerre de cent ans), où la France a essuyé une lourde défaite contre les anglais en 1415.',
             btn: 'Ecouter le Poème de Eustache Deschamps',
@@ -46,6 +48,7 @@ const data = [
         index: 3,
         path: '/content',
         textContent: {
+            right: false,
             title: 'Guerre de cent ans, bataille d’Azincourt',
             main: 'Eustache Deschamps, né vers 1340 et mort vers 1425, était un poète français qui fut huissier d’armes du roi Charles V. Voici un poème qu’il aurait écrit après la bataille d’Azincourt (guerre de cent ans), où la France a essuyé une lourde défaite contre les anglais en 1415.',
             btn: 'Ecouter le Poème de Eustache Deschamps',
@@ -67,6 +70,7 @@ const data = [
         index: 4,
         path: '/content',
         textContent: {
+            right: false,
             title: 'Guerre de cent ans, bataille d’Azincourt',
             main: 'Eustache Deschamps, né vers 1340 et mort vers 1425, était un poète français qui fut huissier d’armes du roi Charles V. Voici un poème qu’il aurait écrit après la bataille d’Azincourt (guerre de cent ans), où la France a essuyé une lourde défaite contre les anglais en 1415.',
             btn: 'Ecouter le Poème de Eustache Deschamps',
@@ -88,6 +92,7 @@ const data = [
         index: 5,
         path: '/content',
         textContent: {
+            right: false,
             title: 'Guerre de cent ans, bataille d’Azincourt',
             main: 'Eustache Deschamps, né vers 1340 et mort vers 1425, était un poète français qui fut huissier d’armes du roi Charles V. Voici un poème qu’il aurait écrit après la bataille d’Azincourt (guerre de cent ans), où la France a essuyé une lourde défaite contre les anglais en 1415.',
             btn: 'Ecouter le Poème de Eustache Deschamps',
@@ -111,6 +116,7 @@ const data = [
         index: 6,
         path: '/content',
         textContent: {
+            right: true,
             title: 'Guerre de cent ans, bataille d’Azincourt',
             main: 'Eustache Deschamps, né vers 1340 et mort vers 1425, était un poète français qui fut huissier d’armes du roi Charles V. Voici un poème qu’il aurait écrit après la bataille d’Azincourt (guerre de cent ans), où la France a essuyé une lourde défaite contre les anglais en 1415.',
             btn: 'Ecouter le Poème de Eustache Deschamps',
