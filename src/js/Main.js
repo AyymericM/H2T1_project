@@ -52,6 +52,8 @@ export default class Main {
         for (const link of this.links) {
             link.addEventListener('click', () => {
                 this.showLoading()
+                this.unregisterContentEvents()
+                this.sounds.stopVoice()
                 this.currentRoute = link.dataset.href
                 this.history.pushState({}, 'Les voix de la guerre', link.dataset.href)
                 setTimeout(() => {
@@ -108,6 +110,20 @@ export default class Main {
         }
     }
 
+    showModal() {
+        const modal = document.querySelector('.content-modal')
+        const content = document.querySelector('.content-wrapper')
+        modal.style.display = 'flex'
+        content.classList.add('modal-opened')
+    }
+
+    hideModal() {
+        const modal = document.querySelector('.content-modal')
+        const content = document.querySelector('.content-wrapper')
+        modal.style.display = 'none'
+        content.classList.remove('modal-opened')
+    }
+
     renderText() {
         if (this.currentData) {
             const container = document.querySelector('.content-container')
@@ -120,22 +136,35 @@ export default class Main {
             const main = container.querySelector('.content.main')
             const btn = container.querySelector('.content.btn')
             const more = container.querySelector('.content.more')
+            const letter = container.querySelector('.content.letter')
     
             const txt = this.currentData.textContent
             title.innerText = txt.title
             main.innerText = txt.main
             more.innerText = txt.more
             btn.innerText = txt.btn
-            // btn.addEventListener('click', () => {
-            //     if (this.sounds.isPlayingVoice) {
-            //         this.sounds.pauseVoice()
-            //     }
-            //     this.sounds.playVoice({
-            //         play
-            //         file: this.data.soundContent.file,
-            //         el: btn
-            //     })
-            // })
+            letter.innerText = txt.letter
+
+            this.registerContentEvents()
+        }
+    }
+
+    unregisterContentEvents() {
+        document.querySelector('.content.more').removeEventListener('click', this.showModal)
+        document.querySelector('.modal-exit').removeEventListener('click', this.hideModal)
+    }
+
+    
+    registerContentEvents() {
+        document.querySelector('.content.more').addEventListener('click', this.showModal)
+        document.querySelector('.modal-exit').addEventListener('click', this.hideModal)
+        document.querySelector('.content.btn').onclick = () => {
+            console.log(this.sounds)
+            if (this.sounds.voice.isPlayingVoice) {
+                this.sounds.stopVoice()
+            } else {
+                this.sounds.playVoice(this.currentData.sound)
+            }
         }
     }
 }
