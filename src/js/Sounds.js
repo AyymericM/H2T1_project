@@ -25,7 +25,6 @@ export default class Sounds {
         this.playStatusLoop = this.playStatusLoop.bind(this)
 
         this.playAmbiant()
-        this.renderBtn()
     }
 
     playAmbiant() {
@@ -35,12 +34,13 @@ export default class Sounds {
             .then(() => {
                 this.toggleBtn.classList.remove('audio-notification')
                 this.isMuted = false
+                this.renderBtn()
             })
             .catch(() => {
                 this.isMuted = true
                 this.alertUser()
+                this.renderBtn()
             })
-        this.renderBtn()
     }
 
     alertUser() {
