@@ -15,11 +15,14 @@ export default class Sounds {
 
         this.voice = {
             isPlayingVoice: false,
-            currentVoice: null
+            currentVoice: null,
+            progression: document.querySelector('.content.btn > .progression')
         }
 
         this.playVoice = this.playVoice.bind(this)
+        this.pauseVoice = this.pauseVoice.bind(this)
         this.stopVoice = this.stopVoice.bind(this)
+        this.playStatusLoop = this.playStatusLoop.bind(this)
 
         this.playAmbiant()
         this.renderBtn()
@@ -74,14 +77,40 @@ export default class Sounds {
     }
 
     playVoice(_file) {
+        console.log(this.voice.currentVoice)
+        if (!this.voice.currentVoice) {
+            console.log('nop');
+            
+            this.isMuted = false
+            this.justLanded = false
+            this.toggleBtn.classList.remove('audio-notification')
+            this.renderBtn()
+            this.muteAmbiant()
+            this.voice.isPlayingVoice = true
+            this.voice.currentVoice = new Audio(`/static/sounds/${_file}`)
+            this.voice.currentVoice.play()
+            this.playStatusLoop()
+        } else {
+            this.resumeVoice()
+        }
+    }
+
+    resumeVoice() {
         this.isMuted = false
-        this.justLanded = false
-        this.toggleBtn.classList.remove('audio-notification')
+        this.voice.isPlayingVoice = true
         this.renderBtn()
         this.muteAmbiant()
-        this.voice.isPlayingVoice = true
-        this.voice.currentVoice = new Audio(`/static/sounds/${_file}`)
         this.voice.currentVoice.play()
+    }
+
+    pauseVoice() {
+        if (this.voice.currentVoice) {
+            this.voice.currentVoice.pause()
+            if (!this.isMuted) {
+                this.playAmbiant()
+            }
+            this.voice.isPlayingVoice = false
+        }
     }
 
     stopVoice() {
@@ -92,6 +121,17 @@ export default class Sounds {
             }
             this.voice.isPlayingVoice = false
             this.voice.currentVoice = null
+        }
+    }
+
+    playStatusLoop() {
+        window.requestAnimationFrame(this.playStatusLoop)
+        if (this.voice.isPlayingVoice) {
+            const status = this.voice.currentVoice.currentTime / this.voice.currentVoice.duration
+            this.voice.progression.style.transform = `scaleX(${status})`
+            if (status >= 1) {
+                this.stopVoice()
+            }
         }
     }
 }

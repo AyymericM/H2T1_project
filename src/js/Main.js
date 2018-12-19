@@ -57,6 +57,7 @@ export default class Main {
                 this.unregisterContentEvents()
                 this.hideModal()
                 this.sounds.stopVoice()
+                document.querySelector('.content.btn > .progression').style.transform = 'scaleX(0)'
                 this.currentRoute = link.dataset.href
                 this.history.pushState({}, 'Les voix de la guerre', link.dataset.href)
                 setTimeout(() => {
@@ -137,7 +138,7 @@ export default class Main {
             }
             const title = container.querySelector('.content.title')
             const main = container.querySelector('.content.main')
-            const btn = container.querySelector('.content.btn')
+            const btn = container.querySelector('.content.btn > .btncontent')
             const more = container.querySelector('.content.more')
             const letter = container.querySelector('.content.letter')
     
@@ -165,7 +166,7 @@ export default class Main {
         const stat_2 = modal.querySelector('.modal-stats-item > .text._2')
         const stat_3 = modal.querySelector('.modal-stats-item > .text._3')
         const stat_4 = modal.querySelector('.modal-stats-item > .text._4')
-        console.log(stat_1)
+
         const modalContent = this.currentData.modalContent
 
         title.innerText = modalContent.title
@@ -176,7 +177,7 @@ export default class Main {
         stat_3.innerText = modalContent.stats.teams
         stat_4.innerText = modalContent.stats.duration
 
-        document.querySelector('.modal-image-display .image').style.backgroundImage = `url('/static/modal/${modalContent.imgs[0].file}')`
+        img.style.backgroundImage = `url('/static/modal/${modalContent.imgs[0].file}')`
 
         if (document.querySelector('.thumb.selected')) {
             document.querySelector('.thumb.selected').classList.remove('selected')
@@ -210,9 +211,8 @@ export default class Main {
         document.querySelector('.content.more').addEventListener('click', this.showModal)
         document.querySelector('.modal-exit').addEventListener('click', this.hideModal)
         document.querySelector('.content.btn').onclick = () => {
-            console.log(this.sounds)
             if (this.sounds.voice.isPlayingVoice) {
-                this.sounds.stopVoice()
+                this.sounds.pauseVoice()
             } else {
                 this.sounds.playVoice(this.currentData.sound)
             }
@@ -228,6 +228,5 @@ export default class Main {
         const imgData = e.target.style.backgroundImage
         const img = document.querySelector('.modal-image-display > .image')
         img.style.backgroundImage = `url(${imgData})`
-        console.log(img)
     }
 }
