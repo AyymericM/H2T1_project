@@ -35,6 +35,7 @@ export default class Main {
     }
 
     showLoading() {
+        document.body.style.overflow = "hidden"
         this.loading.style.display = "flex"
         setTimeout(() => {
             this.loading.classList.remove('loaded')
@@ -44,6 +45,7 @@ export default class Main {
     hideLoading() {
         this.loading.classList.add('loaded')
         setTimeout(() => {
+            document.body.style.overflow = "auto"
             this.loading.style.display = "none"
         }, 510);
     }
