@@ -57,12 +57,12 @@ const data = [
             ]
         },
         modalContent: {
-            title: "Moyen- ge / Guerre de Cent Ans / Bataille d’Azincourt",
+            title: "Moyen-Âge / Guerre de Cent Ans / Bataille d’Azincourt",
             text: "La chronique du religieux de Saint-Denis racontait que  les troupes françaises « étaient déjà vaincues avant même de rencontrer l’ennemi ». C’était vrai. La cavalerie se lança en première ligne, tomba tête la première dans la boue, s’empala sur les défenses et croula sous les flèches anglaises qui noircissaient le ciel. les cadavres jonchaient le sol, les chevaux s'entremêlent : les fantassins sonnaient la charge et s’enfoncèrent dans cet enfer. Les pieds enracinés par la boue, la tête vers le bas, ils se retrouvent à la merci des forces adverses et tombent un par un, malgré l’arrivé de renforts. Un survivant Guillebert de Lannoy, raconte que les prisonniers furent égorgés, écrasés à la masse d’arme, ou encore jetés dans des granges enflammées. Les troupes française sont en déroute et Henry V est sorti victorieux de la bataille, après avoir achevé les blessés restants.",
             imgs: [
                 {file: "MA1.png", title: "The morning of the battle of Agincourt, Sir John Gilbert, 1884"},
                 {file: "MA2.jpg", title: "Miniature extraite de l’Abrégé de la Chronique, Enguerrand de Monstrelet, XVeme siècle"},
-                {file: "MA3.jpg", title: ""}
+                {file: "MA3.jpg", title: "La Bataille d’Azincourt, Miniature extraite des Vigiles de Charles VII de Martial d’Auvergne 1483"}
             ],
             stats: {
                 deads: "6 500 morts",
