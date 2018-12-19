@@ -54,7 +54,8 @@ export default class Sounds {
         this.isMuted = !this.isMuted
         this.renderBtn()
         if (this.isMuted) {
-            this.sounds.ambiant.pause()
+            this.muteAmbiant()
+            this.stopVoice()
         } else {
             this.playAmbiant()
         }
@@ -73,7 +74,6 @@ export default class Sounds {
     }
 
     playVoice(_file) {
-        console.log(_file)
         this.isMuted = false
         this.justLanded = false
         this.toggleBtn.classList.remove('audio-notification')
@@ -87,7 +87,9 @@ export default class Sounds {
     stopVoice() {
         if (this.voice.currentVoice) {
             this.voice.currentVoice.pause()
-            this.playAmbiant()
+            if (!this.isMuted) {
+                this.playAmbiant()
+            }
             this.voice.isPlayingVoice = false
             this.voice.currentVoice = null
         }

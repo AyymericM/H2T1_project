@@ -55,6 +55,7 @@ export default class Main {
             link.addEventListener('click', () => {
                 this.showLoading()
                 this.unregisterContentEvents()
+                this.hideModal()
                 this.sounds.stopVoice()
                 this.currentRoute = link.dataset.href
                 this.history.pushState({}, 'Les voix de la guerre', link.dataset.href)
@@ -146,14 +147,62 @@ export default class Main {
             more.innerText = txt.more
             btn.innerText = txt.btn
             letter.innerText = txt.letter
-
+            
+            this.renderModal()
             this.registerContentEvents()
+        }
+    }
+
+    renderModal() {
+        const modal = document.querySelector('.modal-container')
+        const title = modal.querySelector('.modal-content.text > .title')
+        const text = modal.querySelector('.modal-content.text > .text')
+        const img = modal.querySelector('.modal-image-display .image')
+        const imgtext = modal.querySelector('.modal-image-display .text')
+        const thumbs = modal.querySelectorAll('.modal-thumb-container .thumb')
+
+        const stat_1 = modal.querySelector('.modal-stats-item > .text._1')
+        const stat_2 = modal.querySelector('.modal-stats-item > .text._2')
+        const stat_3 = modal.querySelector('.modal-stats-item > .text._3')
+        const stat_4 = modal.querySelector('.modal-stats-item > .text._4')
+        console.log(stat_1)
+        const modalContent = this.currentData.modalContent
+
+        title.innerText = modalContent.title
+        text.innerText = modalContent.text
+        imgtext.innerText = modalContent.imgs[0].title
+        stat_1.innerText = modalContent.stats.deads
+        stat_2.innerText = modalContent.stats.woundeds
+        stat_3.innerText = modalContent.stats.teams
+        stat_4.innerText = modalContent.stats.duration
+
+        document.querySelector('.modal-image-display .image').style.backgroundImage = `url('/static/modal/${modalContent.imgs[0].file}')`
+
+        if (document.querySelector('.thumb.selected')) {
+            document.querySelector('.thumb.selected').classList.remove('selected')
+        }
+
+        thumbs[0].classList.add('selected')
+
+        for (let i = 0; i < this.currentData.modalContent.imgs.length; i++) {
+            const img = this.currentData.modalContent.imgs[i]
+            thumbs[i].style.backgroundImage = `url('/static/modal/${img.file}')`
+            thumbs[i].onclick = () => {
+                document.querySelector('.modal-image-display .image').style.backgroundImage = `url('/static/modal/${img.file}')`
+                document.querySelector('.modal-image-display .text').innerText = img.title
+                document.querySelector('.thumb.selected').classList.remove('selected')
+                thumbs[i].classList.add('selected')
+            }
         }
     }
 
     unregisterContentEvents() {
         document.querySelector('.content.more').removeEventListener('click', this.showModal)
         document.querySelector('.modal-exit').removeEventListener('click', this.hideModal)
+        const thumbs = document.querySelectorAll('.thumb')
+        for (const thumb of thumbs) {
+            thumb.removeEventListener('click', this.displayModalImg)
+        }
     }
 
     
@@ -168,5 +217,17 @@ export default class Main {
                 this.sounds.playVoice(this.currentData.sound)
             }
         }
+
+        const thumbs = document.querySelectorAll('.thumb')
+        for (const thumb of thumbs) {
+            thumb.addEventListener('click', this.displayModalImg)
+        }
+    }
+
+    displayModalImg(e) {
+        const imgData = e.target.style.backgroundImage
+        const img = document.querySelector('.modal-image-display > .image')
+        img.style.backgroundImage = `url(${imgData})`
+        console.log(img)
     }
 }

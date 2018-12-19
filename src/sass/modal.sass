@@ -30,12 +30,17 @@
     height: 95%
     padding: 60px 100px
     box-sizing: border-box
+    display: flex
+    flex-direction: column
+    justify-content: space-between
 
 .modal-row
     width: 100%
     display: flex
     flex-direction: row
     justify-content: space-between
+    &.big
+        height: 80%
 
 .modal-content
     width: 50%
@@ -56,6 +61,13 @@
         flex-direction: row
         justify-content: space-around
         align-items: flex-start
+    &.stats
+        width: 100%
+        height: 300px
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
 
 .modal-image-display
     width: 100%
@@ -75,22 +87,52 @@
         color: white
         margin-top: 15px
         font-size: 16px
+        text-align: right
 
 .modal-thumb-container
     display: flex
     flex-direction: column
     justify-content: space-between
     align-items: flex-start
-    height: 50%
+    height: 100%
     & > .thumb
         cursor: pointer
         width: 150px
-        height: 90px
+        height: 120px
         margin-bottom: 20px
-        background-image: url('/static/modal/ww1_1.jpg')
         background-size: cover
         background-position: center
     & > .thumb.selected
         box-sizing: border-box
         border: 1px solid $color-orange
 
+.modal-stats-separator
+    height: 30%
+    width: 2px
+    background-color: $color-orange
+
+.modal-stats-item
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+    align-items: center
+    width: 25%
+    height: 100%
+    padding: 0 40px
+    box-sizing: border-box
+    & > .text
+        font-size: 18px
+        color: white
+    & > .icon
+        width: 60px
+        height: 60px
+        background-size: cover
+        background-position: center
+    & > .icon._1
+        background-image: url('/static/tombstone.svg')
+    & > .icon._2
+        background-image: url('/static/bandage.svg')
+    & > .icon._3
+        background-image: url('/static/helmet.svg')
+    & > .icon._4
+        background-image: url('/static/calendar.svg')
