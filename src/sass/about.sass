@@ -1,0 +1,44 @@
+.about-wrapper
+    position: relative
+    background-size: cover
+    width: 100%
+    height: 100vh
+    will-change: transform
+    transition: transform 0.4s ease-out
+
+.about-container
+    position: relative
+    margin: 0 auto
+    width: 60%
+    border: 2px rgba(0,0,0,0) solid
+    height: 100%
+
+.about-content
+    margin-top: 100px   
+    box-sizing: border-box
+    height: 100%
+    display: flex
+    flex-direction: column
+    padding: 0 30px
+    & .citation
+        font-size: 28px
+        margin-top: 50px
+        color: white
+    & .name
+        color: $color-orange
+        margin-top: 20px
+        text-align: right
+    & .title
+        font-size: 28px
+        margin-top: 60px
+        color: $color-orange
+    & .texte
+        font-size: 15px
+        margin: 10px 0
+        color: white
+    & .note
+        content-justify: center
+        margin: 50px 0
+        color: white
+        text-align: center
+        font-size: 12px
