@@ -11,6 +11,7 @@
     position: absolute
     z-index: 70
     height: 100%
+    transition: all 0.3s
     width: 100%
 
 .content-column
@@ -24,12 +25,14 @@
     width: 100%
     padding: 0 30px
     box-sizing: border-box
+    transition: all 0.3s
     &.right
         text-align: right
         align-items: flex-end !important
 
 .content
     user-select: none
+    transition: all 0.3s
     &.title
         font-size: 32px
         color: $color-orange
@@ -65,7 +68,7 @@
             background-color: $color-orange
         &:hover
             background-color: #A4080E
-    &.more, &.letter
+    &.more, &.letter-btn
         color: $color-grey
         font-size: 16px
         cursor: pointer
@@ -73,3 +76,31 @@
         &:hover
             color: white
             text-decoration: underline
+    &.letter-container
+        position: relative
+        display: none
+        background-color: rgba(0,0,0,0.6)
+        width: 50%
+        margin-top: 20px
+        height: 200px
+        padding: 40px 30px
+        box-sizing: border-box
+        & > .letter-text
+            color: white
+            font-size: 14px
+            overflow-y: scroll
+            height: 120px
+        & > .letter-close
+            position: absolute
+            z-index: 305
+            right: 25px
+            top: 12px
+            width: 16px
+            height: 16px
+            background-image: url('/static/exit.png')
+            background-size: cover
+            background-position: center
+            transition: all 0.2s
+            cursor: pointer
+            &:hover
+                opacity: 0.7

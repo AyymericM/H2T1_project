@@ -8,7 +8,8 @@ const data = [
             main: 'Archidamos II fut l’un des rois de Sparte durant la guerre du Péloponnèse. On le retrouve ici lors d’un discours face à ses troupes aux débuts du conflit pendant le siège de la cité de Platées.',
             btn: 'Ecouter le discours complet d’Archidamos II',
             more: 'Plus d’informations sur la Guerre du Péloponnèse',
-            letter: "Lire la lettre en entier"
+            letter: "Lire la lettre en entier",
+            letterText: "« Péloponnésiens et alliés ! nos pères eux aussi ont fait bien des expéditions à l'intérieur du Péloponnèse et au dehors ; et les plus âgés d'entre nous ne se lassent pas d'avoir l'expérience de la guerre. Toutefois aucune de nos expéditions au dehors n'a provoqué de préparatifs plus importants. [...] La guerre est pleine d'incertitudes. Très souvent les attaques se produisent à l'improviste et dans un état d'irritation. Souvent aussi des troupes inférieures en nombre, parce qu'elles sont sur leurs gardes, repoussent des forces plus nombreuses, qui par dédain de l'adversaire ne prennent pas de précautions. Il faut donc constamment, en pays ennemi, faire preuve d'audace dans ses desseins, mais de précaution et de prudence dans l'action. C'est ainsi que dans la marche à l'ennemi on est plein d'assurance et plein de sécurité dans la défense. La ville contre laquelle nous marchons, loin d'être dans l'impossibilité de se défendre, est mieux équipée que toute autre. Aussi devons-nous nous attendre à voir l'ennemi nous livrer bataille ; s'il ne le fait pas maintenant que nous sommes à quelque distance, il le fera quand il nous verra sur son territoire, ravageant et détruisant ses biens. Puisque telle est la puissance de la ville que nous attaquons, puisque nos succès ou nos revers doivent mesurer la gloire que nous acquerrons pour nos ancêtres et pour nous-mêmes, suivez vos chefs partout où ils vous conduiront, respectez toujours l'ordre et la discipline et exécutez promptement les commandements. Rien n'est plus beau, rien ne garantit mieux la sécurité qu'une armée nombreuse obéissant à une stricte discipline. »"
         },
         sound: "1_AN.mp3",
         parallax: {
@@ -44,7 +45,8 @@ const data = [
             main: 'Eustache Deschamps, né vers 1340 et mort vers 1425, était un poète français qui fut huissier d’armes du roi Charles V. Voici un poème qu’il aurait écrit après la bataille d’Azincourt durant la Guerre de Cent Ans, où la France a essuyé une lourde défaite contre les anglais en 1415.',
             btn: "Ecouter le Poème d'Eustache Deschamps",
             more: 'Envie d’en savoir plus sur la bataille d’Azincourt ?',
-            letter: "Lire la lettre en entier"
+            letter: "Lire la lettre en entier",
+            letterText: "Car on y fait les sept péchés mortels, Voler, meurtrir, l’un va l’autre tuant, Femmes ravir, les temples sont cassés, Loi n’a entre eux, le moindre est le plus grand, Et l’un voisin va l’autre défoulant. Corps et âme met à perdition Qui guerre suit; aux diables le comment Guerre mener n’est que damnation. Car on y fait les sept péchés mortels, Voler,* meurtrir, l’un va l’autre tuant, Femmes ravir, les temples sont cassés, Loi n’a entre eux, le moindre est le plus grand, Et l’un voisin va l’autre défoulant. Corps et âme met à perdition Qui guerre suit; aux diables le comment Guerre mener n’est que damnation."
         },
         sound: "2_MA.mp3",
         parallax: {
@@ -81,7 +83,8 @@ const data = [
             main: 'Cette lettre de Peter Hagendorf, un mercenaire qui nous narre la bataille et le sac de Magdebourg pendant la guerre de Trente Ans, en 1631. Hagendorf est lui-même originaire de la ville qu’il s’apprête à envahir.',
             btn: 'Ecouter la lettre de Peter Hagendorf',
             more: 'Plus d’informations sur la Guerre de Trente Ans',
-            letter: "Lire la lettre en entier"
+            letter: "Lire la lettre en entier",
+            letterText: "“Nous nous sommes établis dans les villages locaux et avons assiégés la ville de Magdebourg tout l’hiver, restant campés dans nos villages jusqu’au printemps 1631. Là, nous avons pris d’assaut plusieurs positions dans la forêt de Magdebourg mais notre capitaine y a laissé sa peau, abattu par l’ennemi. Le 22 mars, Johann Galgart fut nommé comme notre nouveau capitaine puis mourut le 28 avril d’une balle dans la tête. Le 6 mai, Tilge Neuberg a été promu avant de démissionner 10 jours plus tard. Le 20 mai, nous avons attaqué et pris d’assaut pour de bon Magdebourg. J’ai pénétré la ville pendant une tempête et sans subir de blessures, Dieu merci. Malheureusement, arrivé en ville à la porte de Neustadt, on m’a tiré deux balles dans le corps. Voilà mon butin. J’étais terriblement attristé du sac de la ville bien que j’en fut un des acteurs non seulement car elle est magnifique mais aussi parce que c’est là où je suis né. Les massacres étaient cruels et les pertes humaines immenses. Je ne pourrai pas l’oublier.”"
         },
         sound: "3_RE.mp3",
         parallax: {
@@ -117,7 +120,8 @@ const data = [
             main: 'Alonzo Wolverto était soldat durant la guerre de Sécession. Cette lettre, adressée à sa soeur, fut écrite juste après la bataille de Franklin, le 30 novembre 1864. Il y décrit l’horreur de sa première bataille.',
             btn: 'Ecouter le témoignage d’Alonzo Wolverto',
             more: 'Apprenez en plus sur la bataille de Franklin',
-            letter: "Lire la lettre en entier"
+            letter: "Lire la lettre en entier",
+            letterText: "Ma chère soeur, Notre batterie était au cœur du combat - nous avons perdu près de la moitié de nos hommes et avons terminé la bataille sous le commandement d’un sergent. Je n’aurais jamais pensé que les hommes pouvaient s’affronter avec autant de rage, de désespoir. Je ne m’attendais pas à en sortir vivant, mais j’ai eu de la chance... Je ne savais pas ce qu’était une bataille avant. Le grondement de la mousqueterie et le tonnerre de l’artillerie étaient assourdissants, et dix minutes après le début de la bataille, il faisait aussi noir que lorsqu’elle a cessé. Les étoiles étaient la seule façon de savoir qu’il faisait nuit."
         },
         sound: "4_TR.mp3",
         parallax: {
@@ -150,10 +154,11 @@ const data = [
         textContent: {
             right: false,
             title: 'La grande guerre',
-            main: 'René Pigeard avait vingt ans en 1914. Né dans l’Yonne. Il fut blessé à Verdun puis nommé caporal. Cette lettre destinée à son père dépeint l’horreur de cette guerre mais aussi l’optimisme dans la fatalité que ressentait les poilus en ce temps.',
+            main: 'René Pigeard avait vingt ans en 1914. Né dans l’Yonne. Il fut blessé à Verdun puis nommé caporal. Cette lettre destinée à son père dépeint l’horreur de cette guerre mais aussi l’optimisme dans la fatalité que ressentaient les poilus en ce temps.',
             btn: 'Ecouter la lettre de René Pigeard',
             more: 'Plus d’informations sur la bataille de Verdun',
-            letter: "Lire la lettre en entier"
+            letter: "Lire la lettre en entier",
+            letterText: "Cher papa, J’espère que tu vas bien, je suis toujours sur le front, à Verdun. Pense que de chaque côté des lignes, sur une largeur de un kilomètre, il ne reste pas un brin de verdure, mais une terre grise de poudre, sans cesse retournée par les obus : des blocs de pierre cassés, émiettés, des troncs déchiquetés, des débris de maçonnerie qui laissent supposer qu’il y a eu là une construction, qu’il y a eu des « hommes »… Je croyais avoir tout vu à Neuville. Eh bien non, c’était une illusion. Là-bas, c’était encore de la guerre : on entendait des coups de fusil, des mitrailleuses, mais ici rien que des obus, rien que cela ; puis des tranchées que l’on se bouleverse mutuellement, des lambeaux de chair qui volent en l’air, du sang qui éclabousse… Tu vas croire que j’exagère, non. C’est encore en dessous de la vérité. On se demande comment il se peut que l’on laisse se produire de pareilles choses. Je ne devrais peut-être pas décrire ces atrocités, mais il faut qu’on sache, on ignore la vérité trop brutale. Et dire qu’il y a vingt siècles que Jésus-Christ prêchait sur la bonté des hommes !Nous tenons bon cependant, c’est admirable. Mais ce qui dépasse l’imagination, c’est que les Boches attaquent encore. Il faut avouer que jamais on aura vu une pareille obstination dans le sacrifice inutile :  quand par hasard ils gagnent un bout de terrain ils savent ce que ça leur coûte et encore ne le conservent-ils pas souvent.J’espère aller bientôt vous revoir et on boira encore un beau coup de pinard à la santé de ton poilu qui t’embrasse bien fort."
         },
         sound: "5_GM.mp3",
         parallax: {
@@ -191,7 +196,8 @@ const data = [
             main: 'Cette lettre est issue du carnet du Sergent Christophe Tran Van Can qui faisait partie du 21ème régiment d’infanterie de Marine en 2010 pendant la guerre en Afghanistan. Il montre que malgré la modernité du conflit la guerre reste une entreprise terrible.',
             btn: 'Ecouter la lettre du sergent Tran Van Can',
             more: 'Tout ce qu’il faut savoir sur la guerre en Afghanistan',
-            letter: "Lire la lettre en entier"
+            letter: "Lire la lettre en entier",
+            letterText: "“18 août. L'épuisement. Je n'écris plus depuis une quinzaine de jours. Plus le temps, trop fatigué. Depuis la mi-juillet, le rythme des missions s'est accéléré, je n'en peux plus. Nous n'en pouvons plus ! Nous n'avons plus une seule minute à nous. Nous rentrons du terrain pour nous laver, nous raser, dormir quelques heures puis enchaîner déjà sur une autre mission. Dans la section, tout le monde a le sentiment d'être à son maximum, de vivre un risque permanent. Avec la fatigue qui s'installe, les réflexes qui s'émoussent et la tête qui se met à gamberger. Le cocktail est explosif ! La rumeur court que les chefs, à Nijrab ou plus haut, trouvent que nous n'en faisons pas assez, que le rythme des missions peut encore s'accélérer. Une rumeur qui est claire : s'il n'y a pas de blessés ni de morts, c'est que l'on peut aller plus loin ! C'est tout simplement fou, insupportable.”"
         },
         sound: "6_TD.mp3",
         parallax: {

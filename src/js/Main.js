@@ -23,6 +23,8 @@ export default class Main {
         this.registerLinkEvents()
         this.renderRoutes()
 
+        this.hideLoadingBinded = this.hideLoading.bind(this)
+
         this.sounds = new Sounds({toggleBtnClass: '.nav > .nav-item.sound'})
 
         window.onpopstate = e => {
@@ -43,11 +45,20 @@ export default class Main {
     }
 
     hideLoading() {
-        this.loading.classList.add('loaded')
-        setTimeout(() => {
-            document.body.style.overflow = "auto"
-            this.loading.style.display = "none"
-        }, 510);
+        if (!this.loading) {
+            const loading = document.querySelector('.js-loader')
+            loading.classList.add('loaded')
+            setTimeout(() => {
+                document.body.style.overflow = "auto"
+                loading.style.display = "none"
+            }, 510);
+        } else {
+            this.loading.classList.add('loaded')
+            setTimeout(() => {
+                document.body.style.overflow = "auto"
+                this.loading.style.display = "none"
+            }, 510);
+        }
     }
 
     registerLinkEvents() {
@@ -79,19 +90,23 @@ export default class Main {
     }
 
     renderRoutes() {
+        let r = null
         for (const route of this.routes) {
             const pathSplit = this.currentRoute.split('/')
             const target = `/${pathSplit[1]}`
 
             if (route.dataset.path === target) {
+                r = route
                 route.style.display = 'block'
                 route.classList.add('loading-in')
                 route.classList.remove('loading-out')
-                setTimeout(() => {
-                    this.hideLoading()
-                    route.classList.remove('loading-in')
-                    route.classList.add('loading-out')
-                }, 1000)
+                if (!window.location.pathname.includes('content')) {
+                    setTimeout(() => {
+                        this.hideLoading()
+                        route.classList.remove('loading-in')
+                        route.classList.add('loading-out')
+                    }, 500)
+                }
             } else {
                 route.style.display = 'none'
             }
@@ -102,7 +117,7 @@ export default class Main {
             if (!isNaN(parseInt(rindex))) {
                 const d = data.filter(val => val.index === parseInt(rindex))
                 this.currentData = d[0]
-                this.parallax = new Parallax(this.currentData)
+                this.parallax = new Parallax(this.currentData, this.hideLoading, r)
                 this.parallax.render()
                 this.renderTimeline()
                 this.renderText()
@@ -128,26 +143,51 @@ export default class Main {
         content.classList.remove('modal-opened')
     }
 
+    showLetter() {
+        const container = document.querySelector('.content.letter-container')
+        const letterBtn = document.querySelector('.letter-close')
+        letterBtn.onclick = () => {
+            this.hideLetter()
+        }
+        container.style.display = "block"
+    }
+    
+    hideLetter() {
+        const letter = document.querySelector('.content.letter-container')
+        const letterBtn = document.querySelector('.content.letter-btn')
+        letterBtn.style.display = "block"
+        letter.style.display = "none"
+    }
+
     renderText() {
         if (this.currentData) {
             const container = document.querySelector('.content-container')
+
             if (this.currentData.textContent.right) {
                 container.querySelector('.content-column').classList.add('right')
             } else {
                 container.querySelector('.content-column').classList.remove('right')
             }
+
             const title = container.querySelector('.content.title')
             const main = container.querySelector('.content.main')
             const btn = container.querySelector('.content.btn > .btncontent')
             const more = container.querySelector('.content.more')
-            const letter = container.querySelector('.content.letter')
-    
+            const letterBtn = container.querySelector('.content.letter-btn')
+            const letterText = container.querySelector('.letter-text')
+
             const txt = this.currentData.textContent
             title.innerText = txt.title
             main.innerText = txt.main
             more.innerText = txt.more
             btn.innerText = txt.btn
-            letter.innerText = txt.letter
+            letterText.innerText = txt.letterText
+            letterBtn.innerText = txt.letter
+
+            letterBtn.onclick = () => {
+                letterBtn.style.display = 'none'
+                this.showLetter()
+            }
             
             this.renderModal()
             this.registerContentEvents()
